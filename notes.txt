@@ -24,3 +24,8 @@ the stream only grabs ddata once we call on and pass something for a 'data' even
 After each bucket, the data processed will be returned
 
 the callback queue is used to hold batches waiting on doOnNewBatch
+
+
+asynchorincity:
+
+if something i on the calls tack then the current data gets put into the timer queue
