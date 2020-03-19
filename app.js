@@ -14,7 +14,7 @@ const PiCamera = require('pi-camera');
 function doOnRequest(request,response){
     console.log("work?");
     //Running code based on contents of request headers or more often body
-    if (request.method === 'GET'){
+    if (request.method === 'POST'){
         console.log('okay')
         request.body;
         response.end();
@@ -37,10 +37,11 @@ function doOnRequest(request,response){
                 // Your video was captured
                 console.log(result);
                 response.writeHead(200,{
-                    'Content-Type':'video/H264'})
+                    'Content-Type':'video/H264',
+		    'Content-Length': fs.statSync(`${ __dirname }/video.h264`).size});
                 fromCamera = fs.createReadStream(`${ __dirname }/video.h264`);
                 fromCamera.pipe(response);
-                response.end(result);
+		reponse.end(result);
             }).catch((error) => {
                 // Handle your error
                 response.writeHead(404);
