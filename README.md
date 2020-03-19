@@ -1,0 +1,2 @@
+# HardPartsLearned
+learned stuff
